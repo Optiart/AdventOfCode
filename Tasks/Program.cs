@@ -1,4 +1,5 @@
-﻿using Tasks.DaySeven;
+﻿using Tasks.DayEight;
+using Tasks.DaySeven;
 using Tasks.DaySix;
 
 var days = new Dictionary<int, string>()
@@ -9,12 +10,13 @@ var days = new Dictionary<int, string>()
     {4, "Four"},
     {5, "Five"},
     {6, "Six"},
-    {7, "Seven"}
+    {7, "Seven"},
+    {8, "Eight"}
 };
 
 //Console.Write("Run day: ");
 //var dayToRun = int.Parse(Console.ReadLine());
-var dayToRun = 7;
+var dayToRun = 8;
 
 var inputLines = File.ReadAllLines(@$"Day{days[dayToRun]}\Input.txt");
 
@@ -65,6 +67,13 @@ if (dayToRun == 7)
     RunAndMeasure(
         () => new CamelCards(inputLines, isJokerUsed: false).CalculateTotalWinnings(),
         () => new CamelCards(inputLines, isJokerUsed: true).CalculateTotalWinnings());
+}
+
+if (dayToRun == 8)
+{
+    RunAndMeasure(
+        () => new HauntedWasteland(inputLines).FindStepsToDestination(),
+        () => new HauntedWasteland(inputLines).FindStepsToDestinationAsGhostViaLcm());
 }
 
 static void RunAndMeasure<T>(Func<T> funcPart1, Func<T> funcPart2)

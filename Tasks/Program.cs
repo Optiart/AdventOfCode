@@ -1,4 +1,5 @@
 ﻿using Tasks.DayEight;
+using Tasks.DayNine;
 using Tasks.DaySeven;
 using Tasks.DaySix;
 
@@ -11,12 +12,13 @@ var days = new Dictionary<int, string>()
     {5, "Five"},
     {6, "Six"},
     {7, "Seven"},
-    {8, "Eight"}
+    {8, "Eight"},
+    {9, "Nine"}
 };
 
 //Console.Write("Run day: ");
 //var dayToRun = int.Parse(Console.ReadLine());
-var dayToRun = 8;
+var dayToRun = 9;
 
 var inputLines = File.ReadAllLines(@$"Day{days[dayToRun]}\Input.txt");
 
@@ -76,6 +78,12 @@ if (dayToRun == 8)
         () => new HauntedWasteland(inputLines).FindStepsToDestinationAsGhostViaLcm());
 }
 
+if (dayToRun == 9)
+{
+    RunAndMeasure(
+        () => new MirageMaintenance(inputLines).CalculateSumOfNextPredictedValues(),
+        () => new MirageMaintenance(inputLines).CalculateSumOfPreviousPredictedValues());
+}
 static void RunAndMeasure<T>(Func<T> funcPart1, Func<T> funcPart2)
 {
     const string partOne = "Part One";

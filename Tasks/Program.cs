@@ -2,6 +2,7 @@
 using Tasks.DayNine;
 using Tasks.DaySeven;
 using Tasks.DaySix;
+using Tasks.DayTen;
 
 var days = new Dictionary<int, string>()
 {
@@ -13,12 +14,13 @@ var days = new Dictionary<int, string>()
     {6, "Six"},
     {7, "Seven"},
     {8, "Eight"},
-    {9, "Nine"}
+    {9, "Nine"},
+    {10, "Ten"}
 };
 
 //Console.Write("Run day: ");
 //var dayToRun = int.Parse(Console.ReadLine());
-var dayToRun = 9;
+var dayToRun = 10;
 
 var inputLines = File.ReadAllLines(@$"Day{days[dayToRun]}\Input.txt");
 
@@ -83,6 +85,13 @@ if (dayToRun == 9)
     RunAndMeasure(
         () => new MirageMaintenance(inputLines).CalculateSumOfNextPredictedValues(),
         () => new MirageMaintenance(inputLines).CalculateSumOfPreviousPredictedValues());
+}
+
+if (dayToRun == 10)
+{
+    RunAndMeasure(
+        () => new PipeMaze(inputLines).CalculateFarthestNumberOfSteps(),
+        () => new PipeMaze(inputLines, scaleMap: true).CalculateEnclosedTiles());
 }
 static void RunAndMeasure<T>(Func<T> funcPart1, Func<T> funcPart2)
 {

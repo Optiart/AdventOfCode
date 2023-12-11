@@ -1,4 +1,5 @@
 ﻿using Tasks.DayEight;
+using Tasks.DayEleven;
 using Tasks.DayNine;
 using Tasks.DaySeven;
 using Tasks.DaySix;
@@ -15,12 +16,14 @@ var days = new Dictionary<int, string>()
     {7, "Seven"},
     {8, "Eight"},
     {9, "Nine"},
-    {10, "Ten"}
+    {10, "Ten"},
+    {11, "Eleven"},
+    {12, "Twelve"},
 };
 
 //Console.Write("Run day: ");
 //var dayToRun = int.Parse(Console.ReadLine());
-var dayToRun = 10;
+var dayToRun = 11;
 
 var inputLines = File.ReadAllLines(@$"Day{days[dayToRun]}\Input.txt");
 
@@ -92,6 +95,13 @@ if (dayToRun == 10)
     RunAndMeasure(
         () => new PipeMaze(inputLines).CalculateFarthestNumberOfSteps(),
         () => new PipeMaze(inputLines, scaleMap: true).CalculateEnclosedTiles());
+}
+
+if (dayToRun == 11)
+{
+    RunAndMeasure(
+        () => new CosmicExpansion(inputLines).FindShortestPathSum(),
+        () => new CosmicExpansion(inputLines).FindShortestPathSum(expansionDistance: 1000000));
 }
 static void RunAndMeasure<T>(Func<T> funcPart1, Func<T> funcPart2)
 {

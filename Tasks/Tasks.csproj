@@ -12,6 +12,12 @@
     <None Update="DayEight\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="DayEleven\ExampleInput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DayEleven\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="DayFive\ExampleInput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -54,9 +60,16 @@
     <None Update="DayThree\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="DayTwelve\Input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="DayTwo\Input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DayTwelve\" />
   </ItemGroup>
 
 </Project>

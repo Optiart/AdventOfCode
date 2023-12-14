@@ -4,6 +4,8 @@ using Tasks.DayNine;
 using Tasks.DaySeven;
 using Tasks.DaySix;
 using Tasks.DayTen;
+using Tasks.DayThirteen;
+using Tasks.DayTwelve;
 
 var days = new Dictionary<int, string>()
 {
@@ -19,11 +21,12 @@ var days = new Dictionary<int, string>()
     {10, "Ten"},
     {11, "Eleven"},
     {12, "Twelve"},
+    {13, "Thirteen"},
 };
 
 //Console.Write("Run day: ");
 //var dayToRun = int.Parse(Console.ReadLine());
-var dayToRun = 11;
+var dayToRun = 13;
 
 var inputLines = File.ReadAllLines(@$"Day{days[dayToRun]}\Input.txt");
 
@@ -102,6 +105,20 @@ if (dayToRun == 11)
     RunAndMeasure(
         () => new CosmicExpansion(inputLines).FindShortestPathSum(),
         () => new CosmicExpansion(inputLines).FindShortestPathSum(expansionDistance: 1000000));
+}
+
+if (dayToRun == 12)
+{
+    RunAndMeasure(
+        () => new HotSprings(inputLines, isFolded: true).CalculateSumOfArrangements(),
+        () => 1);
+}
+
+if (dayToRun == 13)
+{
+    RunAndMeasure(
+        () => new PointOfIncidence(inputLines).CalculateReflections(),
+        () => new PointOfIncidence(inputLines).CalculateReflections(hasSmudge: true));
 }
 static void RunAndMeasure<T>(Func<T> funcPart1, Func<T> funcPart2)
 {

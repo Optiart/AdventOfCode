@@ -1,4 +1,6 @@
-﻿namespace Tasks.DayEleven
+﻿using Tasks.Shared;
+
+namespace Tasks.DayEleven
 {
     public class CosmicExpansion
     {
@@ -85,13 +87,6 @@
             }
 
             return sum;
-        }
-
-        private readonly struct Point(int i, int j)
-        {
-            public int I { get; } = i;
-
-            public int J { get; } = j;
         }
     }
 }

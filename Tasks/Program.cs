@@ -1,5 +1,6 @@
 ﻿using Tasks.DayEight;
 using Tasks.DayEleven;
+using Tasks.DayFourteen;
 using Tasks.DayNine;
 using Tasks.DaySeven;
 using Tasks.DaySix;
@@ -22,11 +23,13 @@ var days = new Dictionary<int, string>()
     {11, "Eleven"},
     {12, "Twelve"},
     {13, "Thirteen"},
+    {14, "Fourteen"},
+    {15, "Fifteen"}
 };
 
 //Console.Write("Run day: ");
 //var dayToRun = int.Parse(Console.ReadLine());
-var dayToRun = 13;
+var dayToRun = 14;
 
 var inputLines = File.ReadAllLines(@$"Day{days[dayToRun]}\Input.txt");
 
@@ -119,6 +122,13 @@ if (dayToRun == 13)
     RunAndMeasure(
         () => new PointOfIncidence(inputLines).CalculateReflections(),
         () => new PointOfIncidence(inputLines).CalculateReflections(hasSmudge: true));
+}
+
+if (dayToRun == 14)
+{
+    RunAndMeasure(
+        () => new ParabolicReflectorDish(inputLines).CalculateNorthLoad(),
+        () => new ParabolicReflectorDish(inputLines).CalculateNorthLoadWithCycled());
 }
 static void RunAndMeasure<T>(Func<T> funcPart1, Func<T> funcPart2)
 {

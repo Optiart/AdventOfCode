@@ -5,6 +5,7 @@ using Tasks.DayFourteen;
 using Tasks.DayNine;
 using Tasks.DaySeven;
 using Tasks.DaySix;
+using Tasks.DaySixteen;
 using Tasks.DayTen;
 using Tasks.DayThirteen;
 using Tasks.DayTwelve;
@@ -25,12 +26,13 @@ var days = new Dictionary<int, string>()
     {12, "Twelve"},
     {13, "Thirteen"},
     {14, "Fourteen"},
-    {15, "Fifteen"}
+    {15, "Fifteen"},
+    {16, "Sixteen"}
 };
 
 //Console.Write("Run day: ");
 //var dayToRun = int.Parse(Console.ReadLine());
-var dayToRun = 15;
+var dayToRun = 16;
 
 var inputLines = File.ReadAllLines(@$"Day{days[dayToRun]}\Input.txt");
 
@@ -137,6 +139,13 @@ if (dayToRun == 15)
     RunAndMeasure(
         () => new LensLibrary(inputLines).ComputeInitializationSequenceSum(),
         () => new LensLibrary(inputLines).ComputeFocusingPower());
+}
+
+if (dayToRun == 16)
+{
+    RunAndMeasure(
+        () => new TheFloorWillBeLava(inputLines).DetermineEnergizedTileCount(),
+        () => new TheFloorWillBeLava(inputLines).DetermineMaxEnergizedTileCount_BruteForce());
 }
 static void RunAndMeasure<T>(Func<T> funcPart1, Func<T> funcPart2)
 {
